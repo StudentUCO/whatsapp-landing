@@ -1,0 +1,457 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  min-height: 100vh;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#root {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.landing-container {
+  width: 100%;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px 0;
+  border: 1px solid #e2e8f0;
+}
+
+.landing-header {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  color: white;
+  padding: 60px 40px;
+  text-align: center;
+  position: relative;
+}
+
+.landing-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(37,211,102,0.1)"/><circle cx="30" cy="30" r="1" fill="rgba(37,211,102,0.1)"/><circle cx="60" cy="20" r="1" fill="rgba(37,211,102,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(37,211,102,0.1)"/></svg>');
+  pointer-events: none;
+}
+
+.header-icon {
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.icon-automation {
+  color: #25d366;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.section-icon {
+  color: #25d366;
+  vertical-align: middle;
+  margin-right: 12px;
+}
+
+.benefit-icon {
+  color: #25d366;
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.landing-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
+}
+
+.landing-subtitle {
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.cta-button {
+  background: #25d366;
+  color: white;
+  padding: 16px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+  background: #128c7e;
+}
+
+.benefits-section, .how-section {
+  padding: 50px 40px;
+}
+
+.benefits-section h2, .how-section h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.benefits-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.benefits-list li {
+  background: white;
+  padding: 28px 24px;
+  border-radius: 16px;
+  font-size: 1.1rem;
+  color: #4a5568;
+  position: relative;
+  transition: all 0.3s ease;
+  border-left: 5px solid #25d366;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+}
+
+.benefits-list li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.15);
+  border-left-color: #128c7e;
+}
+
+.benefits-list li::before {
+  display: none;
+}
+
+.how-list {
+  max-width: 600px;
+  margin: 0 auto;
+  counter-reset: step-counter;
+  list-style: none;
+  padding: 0;
+}
+
+.how-list li {
+  background: white;
+  margin-bottom: 20px;
+  padding: 24px 24px 24px 50px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  color: #4a5568;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  counter-increment: step-counter;
+  border-left: 4px solid #25d366;
+}
+
+.how-list li::before {
+  content: counter(step-counter);
+  background: #25d366;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.contact-section {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  padding: 50px 40px;
+  text-align: center;
+  border-top: 1px solid #e2e8f0;
+}
+
+.contact-section h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 32px;
+}
+
+.contact-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input {
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 2px solid #e2e8f0;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.contact-form input:focus {
+  outline: none;
+  border-color: #25d366;
+  box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.1);
+}
+
+.landing-footer {
+  background: #2d3748;
+  color: #a0aec0;
+  text-align: center;
+  padding: 30px 40px;
+  font-size: 0.95rem;
+}
+
+.landing-footer p {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    align-items: flex-start;
+    padding-top: 20px;
+  }
+  
+  #root {
+    max-width: 100%;
+  }
+  
+  .landing-container {
+    margin: 10px 0;
+    border-radius: 15px;
+  }
+  
+  .landing-header {
+    padding: 40px 20px;
+  }
+  
+  .landing-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .landing-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .benefits-section, .how-section, .contact-section {
+    padding: 30px 20px;
+  }
+  
+  .benefits-list {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 0 10px;
+  }
+  
+  .benefits-list li {
+    padding: 24px 20px;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .benefit-icon {
+    margin-top: 2px;
+  }
+  
+  .how-list {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+  
+  .how-list li {
+    padding: 20px 20px 20px 45px;
+  }
+  
+  .how-list li::before {
+    left: 8px;
+    width: 25px;
+    height: 25px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Estilos para la página de Política de Privacidad */
+.privacy-header {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  color: white;
+  padding: 60px 40px;
+  text-align: center;
+  position: relative;
+}
+
+.privacy-subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  opacity: 0.95;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.back-button {
+  background: #25d366;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.back-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+  background: #128c7e;
+}
+
+.privacy-content {
+  padding: 0 40px 40px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.privacy-section {
+  margin-bottom: 40px;
+}
+
+.privacy-section h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+}
+
+.privacy-section h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 16px;
+}
+
+.privacy-card {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.privacy-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.privacy-card li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f7fafc;
+  color: #4a5568;
+  position: relative;
+  padding-left: 20px;
+}
+
+.privacy-card li:last-child {
+  border-bottom: none;
+}
+
+.privacy-card li::before {
+  content: '•';
+  color: #25d366;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.privacy-card p {
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.privacy-card p:last-child {
+  margin-bottom: 0;
+}
+
+.contact-privacy .privacy-card {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border: 2px solid #25d366;
+}
+
+@media (max-width: 768px) {
+  .privacy-header {
+    padding: 40px 20px;
+  }
+  
+  .privacy-content {
+    padding: 0 20px 40px;
+  }
+  
+  .privacy-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .privacy-card {
+    padding: 20px;
+  }
+}
