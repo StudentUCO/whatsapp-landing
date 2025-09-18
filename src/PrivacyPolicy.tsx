@@ -1,8 +1,14 @@
 import './App.css';
 import { Shield, ArrowLeft, Lock, Eye, UserCheck, FileText, Globe, Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function PrivacyPolicy() {
+  const navigate = useNavigate();
+
+  const handleBackClick = () => {
+    navigate('/');
+  };
+
   return (
     <div className="landing-container">
       <header className="privacy-header">
@@ -13,10 +19,10 @@ function PrivacyPolicy() {
         <p className="privacy-subtitle">
           Tu privacidad es nuestra prioridad. Conoce cómo protegemos y manejamos tu información personal.
         </p>
-        <Link to="/" className="back-button">
+        <span onClick={handleBackClick} className="back-button" style={{cursor: 'pointer'}}>
           <ArrowLeft size={20} style={{marginRight: '8px', verticalAlign: 'middle'}} />
           Volver al inicio
-        </Link>
+        </span>
       </header>
 
       <div className="privacy-content">
@@ -136,11 +142,6 @@ function PrivacyPolicy() {
           <h2><Mail size={24} className="section-icon" /> Contacto</h2>
           <div className="privacy-card">
             <p>Si tienes preguntas sobre esta política de privacidad o quieres ejercer tus derechos, contáctanos:</p>
-            <ul>
-              <li><strong>Email:</strong> privacidad@tuempresa.com</li>
-              <li><strong>WhatsApp:</strong> +XX XXX XXX XXXX</li>
-              <li><strong>Dirección:</strong> [Tu dirección comercial]</li>
-            </ul>
           </div>
         </section>
       </div>

@@ -2,9 +2,15 @@
 
 import './App.css';
 import { Zap, Rocket, Settings, Phone, MessageCircle, CheckCircle, Users, Shield, Clock, Wrench } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
+  const navigate = useNavigate();
+
+  const handlePrivacyClick = () => {
+    navigate('/privacy');
+  };
+
   return (
     <div className="landing-container">
       <header className="landing-header">
@@ -15,7 +21,10 @@ function App() {
         <p className="landing-subtitle">
           Impulsa la eficiencia de tu empresa integrando flujos automáticos entre WhatsApp y tus sistemas favoritos usando n8n.
         </p>
-        <a href="#contacto" className="cta-button">Solicita una demo</a>
+        <a href="#contacto" className="cta-button" onClick={(e) => {
+          e.preventDefault();
+          document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' });
+        }}>Solicita una demo</a>
       </header>
       <section className="benefits-section">
         <h2><Rocket size={32} className="section-icon" /> ¿Por qué elegirnos?</h2>
@@ -55,7 +64,12 @@ function App() {
         <p>© {new Date().getFullYear()} Automatizaciones n8n + WhatsApp. Todos los derechos reservados.</p>
         <p style={{fontSize: '0.9rem', marginTop: '8px'}}>
           Sitio desarrollado con React y Vite. | 
-          <Link to="/privacy" style={{color: '#25d366', textDecoration: 'none', marginLeft: '8px'}}>Política de Privacidad</Link>
+          <span 
+            onClick={handlePrivacyClick}
+            style={{color: '#25d366', textDecoration: 'none', marginLeft: '8px', cursor: 'pointer'}}
+          >
+            Política de Privacidad
+          </span>
         </p>
       </footer>
     </div>
